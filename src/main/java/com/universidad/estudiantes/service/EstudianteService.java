@@ -6,11 +6,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+/**
+ * Servicio que contiene la lógica de negocio para la gestión de estudiantes.
+ * 
+ * @Transactional garantiza la integridad de los datos en operaciones de
+ *                escritura.
+ */
 @Service
 public class EstudianteService {
 
     private final EstudianteRepository repo;
 
+    // Inyección de dependencias por constructor (recomendado por Spring)
     public EstudianteService(EstudianteRepository repo) {
         this.repo = repo;
     }
@@ -21,7 +28,7 @@ public class EstudianteService {
 
     public Estudiante buscarPorId(Long id) {
         return repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado con id: " + id));
+                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado: " + id));
     }
 
     @Transactional

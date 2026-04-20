@@ -2,7 +2,13 @@ package com.universidad.estudiantes.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * Entidad JPA que representa un estudiante.
+ * Lado inverso de la relación ManyToMany con Curso.
+ */
 @Entity
 @Table(name = "estudiantes")
 public class Estudiante {
@@ -17,12 +23,11 @@ public class Estudiante {
     private String nombre;
 
     @NotBlank(message = "El apellido es obligatorio")
-    @Size(min = 2, max = 100, message = "El apellido debe tener entre 2 y 100 caracteres")
     @Column(name = "apellido", nullable = false, length = 100)
     private String apellido;
 
-    @NotBlank(message = "El correo es obligatorio")
     @Email(message = "El correo debe ser una dirección válida")
+    @NotBlank(message = "El correo es obligatorio")
     @Column(name = "correo", nullable = false, unique = true, length = 150)
     private String correo;
 
@@ -30,22 +35,54 @@ public class Estudiante {
     @Column(name = "carrera", nullable = false, length = 100)
     private String carrera;
 
-    // Constructor vacío requerido por JPA
-    public Estudiante() {}
+    // Lado inverso de la relación ManyToMany
+    @ManyToMany(mappedBy = "estudiantes")
+    private Set<Curso> cursos = new HashSet<>();
 
-    // Getters y setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Estudiante() {
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getApellido() { return apellido; }
-    public void setApellido(String apellido) { this.apellido = apellido; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getCorreo() { return correo; }
-    public void setCorreo(String correo) { this.correo = correo; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public String getCarrera() { return carrera; }
-    public void setCarrera(String carrera) { this.carrera = carrera; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String a) {
+        this.apellido = a;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public Set<Curso> getCursos() {
+        return cursos;
+    }
 }
