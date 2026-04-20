@@ -41,27 +41,27 @@ En la terminal del proyecto:
 ## 📸 Evidencias del proyecto
 
 ### 🧑‍🎓 Crear estudiante
-![Crear estudiante](docs/crear_estudiante.PNG)
+![Crear estudiante](./docs/crear_estudiante.PNG)
 
 ---
 
 ### 🧑‍🎓 Crear estudiantes
-![Crear estudiantes](docs/crear_estudiantes.PNG)
+![Crear estudiantes](./docs/crear_estudiantes.PNG)
 
 ---
 
 ### 📚 Crear cursos
-![Crear cursos](docs/crear_cursos.PNG)
+![Crear cursos](./docs/crear_cursos.PNG)
 
 ---
 
 ### 🔗 Inscribir estudiantes en cursos
-![Inscribir estudiantes](docs/inscribir_Estudiantes_cursos.PNG)
+![Inscribir estudiantes](./docs/inscribir_Estudiantes_cursos.PNG)
 
 ---
 
 ### ❌ Desinscribir estudiante
-![Desinscribir estudiante](docs/Desinscribir_estudiante.PNG)
+![Desinscribir estudiante](./docs/Desinscribir_estudiante.PNG)
 
 Autor
 Diego Armando Cayetano Bautista Cano
